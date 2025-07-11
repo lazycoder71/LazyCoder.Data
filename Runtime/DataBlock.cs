@@ -1,8 +1,9 @@
-﻿using System;
+﻿using LazyCoder.Core;
+using System;
 
 namespace LazyCoder.Data
 {
-    [System.Serializable]
+    [Serializable]
     public class DataBlock<T> where T : DataBlock<T>
     {
         private static T s_instance;
