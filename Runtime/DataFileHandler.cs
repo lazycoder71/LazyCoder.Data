@@ -7,11 +7,11 @@ namespace LazyCoder.Data
 {
     public static class DataFileHandler
     {
-        private static readonly string s_rootFolderName = "LazyCoder.Data";
+        private const string RootFolderName = "LazyCoder.Data";
 
         private static string GetDevicePath(string filePath)
         {
-            return Path.Combine(Application.persistentDataPath, s_rootFolderName, filePath);
+            return Path.Combine(Application.persistentDataPath, RootFolderName, filePath);
         }
 
         private static string GetProjectPath(string filePath)
@@ -27,10 +27,10 @@ namespace LazyCoder.Data
 
                 // Create folder if needed
                 {
-                    string directionRoot = Path.GetDirectoryName(filePath);
+                    string path = Path.GetDirectoryName(filePath);
 
-                    if (!Directory.Exists(directionRoot))
-                        Directory.CreateDirectory(directionRoot);
+                    if (!Directory.Exists(path))
+                        Directory.CreateDirectory(path);
                 }
 
                 File.WriteAllBytes(filePath, bytes);
@@ -47,7 +47,8 @@ namespace LazyCoder.Data
             {
                 if (!File.Exists(filePath))
                 {
-                    LDebug.Log(typeof(DataFileHandler), $"Can't load, file {filePath} does not exist! creating new file");
+                    LDebug.Log(typeof(DataFileHandler),
+                        $"Can't load, file {filePath} does not exist! creating new file");
                     return null;
                 }
 
@@ -127,7 +128,7 @@ namespace LazyCoder.Data
 
         public static void DeleteAllInDevice()
         {
-            string path = Path.Combine(Application.persistentDataPath, s_rootFolderName);
+            string path = Path.Combine(Application.persistentDataPath, RootFolderName);
 
             var info = new DirectoryInfo(path);
 

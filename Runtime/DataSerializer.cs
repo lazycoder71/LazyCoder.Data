@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace LazyCoder.Data
 {
-    public class DataSerializer
+    public static class DataSerializer
     {
 #if LAZYCODER_MEMORYPACK
         public static byte[] Serialize<T>(T data) where T : class
