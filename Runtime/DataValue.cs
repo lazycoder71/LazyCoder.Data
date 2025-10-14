@@ -5,6 +5,8 @@ namespace LazyCoder.Data
 {
 #if LAZYCODER_MEMORYPACK
     [MemoryPack.MemoryPackable]
+#else
+    [System.Serializable]
 #endif
     public partial class DataValue<T>
     {
@@ -15,10 +17,7 @@ namespace LazyCoder.Data
 
         public T Value
         {
-            get
-            {
-                return _value;
-            }
+            get => _value;
             set
             {
                 _value = value;
@@ -29,9 +28,9 @@ namespace LazyCoder.Data
 
         public event Action<T> EventValueChanged;
 
-        public DataValue(T _value)
+        public DataValue(T value)
         {
-            this._value = _value;
+            _value = value;
         }
     }
 }
