@@ -12,8 +12,10 @@ namespace LazyCoder.Data
     {
 #if LAZYCODER_MEMORYPACK
         [MemoryPack.MemoryPackInclude]
-#endif
-        [SerializeField] private T _value;
+#else
+        [SerializeField]
+#endif        
+        private T _value;
 
         public T Value
         {
@@ -28,9 +30,9 @@ namespace LazyCoder.Data
 
         public event Action<T> EventValueChanged;
 
-        public DataValue(T value)
+        public DataValue(T _value)
         {
-            _value = value;
+            this._value = _value;
         }
     }
 }
