@@ -14,7 +14,7 @@
     "defineConstraints": [],
     "versionDefines": [
         {
-            "name": "com.cysharp.memorypack",
+            "name": "com.cysharp.unitask",
             "expression": "",
             "define": "LAZYCODER_MEMORYPACK"
         }
