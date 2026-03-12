@@ -22,13 +22,21 @@ namespace LazyCoder.Data
             get => _value;
             set
             {
-                _value = value;
-
-                EventValueChanged?.Invoke(_value);
+                if (!_value.Equals(value))
+                {
+                    T oldValue = _value;
+                    
+                    _value = value;
+                    
+                    EventValueChanged?.Invoke(oldValue, value);
+                }
             }
         }
 
-        public event Action<T> EventValueChanged;
+        /// <summary>
+        /// Value changed event, first argument is the old value, second is the new value
+        /// </summary>
+        public event Action<T,T> EventValueChanged;
 
         public DataValue(T _value)
         {
