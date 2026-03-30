@@ -1,8 +1,5 @@
 #if LAZYCODER_MEMORYPACK
 using MemoryPack;
-#elif LAZYCODER_ODINSERIALIZER
-using OdinSerializer;
-#else
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 #endif
@@ -20,16 +17,6 @@ namespace LazyCoder.Data
         public static T Deserialize<T>(byte[] data) where T : class
         {
             return MemoryPackSerializer.Deserialize<T>(data);
-        }
-#elif LAZYCODER_ODINSERIALIZER
-        public static byte[] Serialize<T>(T data) where T : class
-        {
-            return SerializationUtility.SerializeValue(data, DataFormat.Binary);
-        }
-
-        public static T Deserialize<T>(byte[] data) where T : class
-        {
-            return SerializationUtility.DeserializeValue<T>(data, DataFormat.Binary);
         }
 #else
         public static byte[] Serialize<T>(T data) where T : class

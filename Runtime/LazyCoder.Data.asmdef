@@ -2,8 +2,7 @@
     "name": "LazyCoder.Data",
     "rootNamespace": "LazyCoder.Data",
     "references": [
-        "LazyCoder.Core",
-        "OdinSerializer"
+        "LazyCoder.Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

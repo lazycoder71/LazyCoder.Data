@@ -6,23 +6,23 @@ namespace LazyCoder.Data
     [Serializable]
     public class DataBlock<T> where T : DataBlock<T>
     {
-        private static T s_instance;
+        private static T _instance;
 
         public static T Instance
         {
             get
             {
-                if (s_instance == null)
+                if (_instance == null)
                 {
-                    s_instance = DataFileHandler.LoadFromDevice<T>(typeof(T).ToString());
+                    _instance = DataFileHandler.LoadFromDevice<T>(typeof(T).ToString());
 
-                    if (s_instance == null)
-                        s_instance = (T)Activator.CreateInstance(typeof(T));
+                    if (_instance == null)
+                        _instance = (T)Activator.CreateInstance(typeof(T));
 
-                    s_instance.Init();
+                    _instance.Init();
                 }
 
-                return s_instance;
+                return _instance;
             }
         }
 
@@ -30,10 +30,10 @@ namespace LazyCoder.Data
         {
             MonoCallback.SafeInstance.EventApplicationPause += MonoCallback_ApplicationOnPause;
             MonoCallback.SafeInstance.EventApplicationQuit += MonoCallback_ApplicationOnQuit;
-            MonoCallback.SafeInstance.EventApplicationFocus += MonoCAllback_EventApplicationFocus;
+            MonoCallback.SafeInstance.EventApplicationFocus += MonoCallback_EventApplicationFocus;
         }
 
-        private void MonoCAllback_EventApplicationFocus(bool isFocus)
+        private void MonoCallback_EventApplicationFocus(bool isFocus)
         {
             if (!isFocus)
                 Save();
@@ -57,7 +57,7 @@ namespace LazyCoder.Data
 
         public static void Delete()
         {
-            s_instance = null;
+            _instance = null;
 
             DataFileHandler.DeleteInDevice(typeof(T).ToString());
         }
