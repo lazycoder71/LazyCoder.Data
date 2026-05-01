@@ -37,7 +37,7 @@ namespace LazyCoder.Data
             }
             catch (Exception e)
             {
-                LDebug.Log(typeof(DataFileHandler), $"Save failed: {e}");
+                LzDebug.Log(typeof(DataFileHandler), $"Save failed: {e}");
             }
         }
 
@@ -47,7 +47,7 @@ namespace LazyCoder.Data
             {
                 if (!File.Exists(filePath))
                 {
-                    LDebug.Log(typeof(DataFileHandler),
+                    LzDebug.Log(typeof(DataFileHandler),
                         $"Can't load, file {filePath} does not exist! creating new file");
                     return null;
                 }
@@ -58,7 +58,7 @@ namespace LazyCoder.Data
             }
             catch (Exception e)
             {
-                LDebug.Log(typeof(DataFileHandler), $"Load failed: {e}");
+                LzDebug.Log(typeof(DataFileHandler), $"Load failed: {e}");
 
                 return null;
             }
@@ -70,7 +70,7 @@ namespace LazyCoder.Data
             {
                 if (!File.Exists(filePath))
                 {
-                    LDebug.Log(typeof(DataFileHandler), $"Can't delete, file {filePath} does not exist!");
+                    LzDebug.Log(typeof(DataFileHandler), $"Can't delete, file {filePath} does not exist!");
                     return;
                 }
 
@@ -78,7 +78,7 @@ namespace LazyCoder.Data
             }
             catch (Exception e)
             {
-                LDebug.Log(typeof(DataFileHandler), $"Delete failed: {e}");
+                LzDebug.Log(typeof(DataFileHandler), $"Delete failed: {e}");
             }
         }
 
@@ -90,7 +90,7 @@ namespace LazyCoder.Data
             }
             catch (Exception e)
             {
-                LDebug.Log(typeof(DataFileHandler), $"Load failed: {e}");
+                LzDebug.Log(typeof(DataFileHandler), $"Load failed: {e}");
 
                 return null;
             }

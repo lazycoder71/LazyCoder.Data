@@ -1,8 +1,8 @@
 {
   "name": "lazycoder.unity.data",
   "displayName": "LazyCoder Data",
-  "version": "1.0.1",
-  "unity": "6000.3",
+  "version": "1.0.2",
+  "unity": "6000.4",
   "description": "Data saving solution for Unity.",
   "keywords": [
     "data",
@@ -16,15 +16,17 @@
     "type": "git",
     "url": "https://github.com/lazycoder71/LazyCoder.Data.git"
   },
-  "samples": [{
-    "displayName": "Demo",
-    "description": "Demo using Data",
-    "path": "Samples~/Demo"
-  }],
+  "samples": [
+    {
+      "displayName": "Demo",
+      "description": "Demo using Data",
+      "path": "Samples~/Demo"
+    }
+  ],
   "license": "MIT",
   "author": {
     "name": "Lam Nguyen",
-    "email": "lamnd.bounce@gmail.com",
-    "url": "https://www.facebook.com/theycallmelam"
+    "url": "https://www.facebook.com/theycallmelam",
+    "email": "lamnd.bounce@gmail.com"
   }
 }
